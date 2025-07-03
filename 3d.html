@@ -1,35 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <title>Escena 3D con Model Viewer</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <style>
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Model</title>
+   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+   <style>
       body {
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f0f0f0;
+         margin: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background-color: #111111cc;
       }
+
       model-viewer {
-        width: 500px;
-        height: 500px;
+         width: 100vw;
+         height: 100vh;
       }
-    </style>
-  </head>
-  <body>
 
-    <!-- Model Viewer con modelo GLB -->
-    <model-viewer
-      src="assets/3d/cumple.glb"
-      alt="Modelo 3D de un astronauta"
-      auto-rotate
-      camera-controls
-      ar
-      background-color="#ffffff">
-    </model-viewer>
+      button {
+         padding: 8px 20px 11px 22px;
+         border-radius: 5px;
+         border: none;
+         text-decoration: none;
+         font-weight: 500;
 
-  </body>
+         &:hover {
+            filter: brightness(1.1);
+            cursor: pointer;
+         }
+      }
+
+
+      .arBtn {
+         position: absolute;
+         top: 0;
+         right: 0;
+         margin: 20px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 10px;
+         background: #cccccc90;
+         backdrop-filter: blur(8px);
+         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+         color: black;
+         font-weight: 500;
+
+
+         & img {
+            width: 20px;
+            filter: saturate(0) brightness(0);
+         }
+      }
+   </style>
+</head>
+
+<body>
+
+   <model-viewer src="assets/3d/cumple2.glb" ar-modes="webxr scene-viewer quick-look" max-camera-orbit="auto 95deg"
+      alt="model" auto-rotate camera-controls ar>
+      <button slot="ar-button" class='arBtn'>
+         <img src='./assets/3d/ar.png' alt="ar imagen" />
+         Visualizalo
+      </button>
+
+   </model-viewer>
+
+</body>
+
 </html>
