@@ -74,10 +74,10 @@
 
    </model-viewer>
    <script>
-      const models = ['liz10.glb'];
+      const models = ['liz10.glb',liz11.glb];
       const toggleModel = document.querySelector('#toggle-model');
       let j = 0;
-      setInterval(() => toggleModel.setAttribute('src', `assets/3d/${models[j++ % 1]}`), 15000);
+      setInterval(() => toggleModel.setAttribute('src', `assets/3d/${models[j++ % 2]}`), 15000);
    </script>
 
 </body>
